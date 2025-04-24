@@ -20,18 +20,28 @@
                     <li><a href="#features">Features</a></li>
                     <li><a href="#how-it-works">How It Works</a></li>
                     <li><a href="#chat">Try Now</a></li>
+                    <li><a href="about.html" class="about-link">About Us</a></li>
                 </ul>
             </nav>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </header>
 
         <section class="hero">
             <div class="hero-content">
                 <h1>Plan Your Perfect Event with AI</h1>
                 <p>Let our AI assistant handle all your event planning needs. Just tell us the number of people and duration - we'll take care of the rest.</p>
-                <a href="#chat" class="cta-button">Plan My Event</a>
+                <div class="cta-buttons">
+                    <a href="#chat" class="cta-button primary-btn">Plan My Event</a>
+                    <a href="about.html" class="cta-button secondary-btn">Learn More</a>
+                </div>
             </div>
             <div class="hero-image">
-                <i id="pic" class="fas fa-calendar-check"></i>
+                <div class="image-container">
+                    <i id="pic" class="fas fa-calendar-check"></i>
+                    <div class="glow-effect"></div>
+                </div>
             </div>
         </section>
 
@@ -80,11 +90,29 @@
         <section id="chat" class="chat-section">
             <h2>Plan Your Event Now</h2>
             <div class="chat-container">
+                <div class="chat-header">
+                    <div class="chat-title">
+                        <i class="fas fa-robot"></i>
+                        <span>EventBuddy AI Assistant</span>
+                    </div>
+                    <div class="chat-actions">
+                        <button class="action-button clear-chat" title="Clear Chat">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
+                </div>
                 <div class="chat-messages" id="chat-messages">
                     <div class="message bot">
                         <div class="avatar"><i class="fas fa-robot"></i></div>
                         <div class="message-content">
-                            <p>Hi there! I'm EventBuddy, your AI event planner. To get started, please tell me how many people will attend your event and how long it will last.</p>
+                            <div class="section-title">Welcome to EventBuddy! <i class="fas fa-star sparkle"></i></div>
+                            <p>I'm your AI event planner, ready to help create your perfect event! To get started, please tell me:</p>
+                            <ul>
+                                <li><i class="fas fa-users icon-bullet"></i> How many people will attend</li>
+                                <li><i class="fas fa-clock icon-bullet"></i> How long your event will last</li>
+                                <li><i class="fas fa-calendar-day icon-bullet"></i> Optional: type of event</li>
+                            </ul>
+                            <p>For example: "I'm planning a birthday party for 20 people for 4 hours."</p>
                         </div>
                     </div>
                 </div>
@@ -97,15 +125,52 @@
 
         <footer>
             <div class="footer-content">
-                <div class="logo">
-                    <span>EventBuddy</span>
-                    <i class="fas fa-calendar-check"></i>
+                <div class="footer-section">
+                    <div class="logo">
+                        <span>EventBuddy</span>
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <p>Your AI-powered event planning assistant</p>
                 </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
                 <p>&copy; 2025 EventBuddy. All rights reserved.</p>
             </div>
         </footer>
     </div>
 
     <script src="index.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+        
+        // Clear chat functionality
+        document.querySelector('.clear-chat').addEventListener('click', function() {
+            const chatMessages = document.getElementById('chat-messages');
+            // Keep only the first welcome message
+            const welcomeMessage = chatMessages.firstElementChild;
+            chatMessages.innerHTML = '';
+            chatMessages.appendChild(welcomeMessage);
+        });
+    </script>
 </body>
 </html>
